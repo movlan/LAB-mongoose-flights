@@ -13,14 +13,14 @@
         <tr>
           <td style="color: red"><%= f.airline %></td>
           <td style="color: red"><%= f.flightNo %></td>
-          <td style="color: red"><%= f.departs %></td>
+          <td style="color: red"><%= f.departs.toLocaleString() %></td>
           <td style="color: red"><a href="/flights/<%= f._id %>">FLIGHT DETAILS</a></td>
         </tr>
       <% } else { %>
         <tr>
           <td><%= f.airline %></td>
           <td><%= f.flightNo %></td>
-          <td><%= f.departs %></td>
+          <td><%= f.departs.toLocaleString() %></td>
           <td><a href="/flights/<%= f._id %>">FLIGHT DETAILS</a></td>
         </tr>
       <% }}); %>
