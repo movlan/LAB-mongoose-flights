@@ -8,7 +8,8 @@ module.exports = {
 
 function create(req, res) {
     Ticket.create(req.body, function(err, ticket) {
-        res.redirect('/flights')
+        console.log(Ticket.find({}))
+        res.redirect(`/flights/${req.body.flight}`)
     });
 }
 
