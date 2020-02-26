@@ -18,7 +18,7 @@ function show(req, res) {
                 flight,
                 defaultDate,
                 tickets
-            })
+            });
         });
     });
 }
