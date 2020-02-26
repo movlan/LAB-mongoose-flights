@@ -9,6 +9,14 @@
   </select>
   <label>Flight #:</label>
   <input type="text" name="flightNo" required>
+  <label>Departure Airport:</label>
+  <select name="departAirport">
+    <option value="AUS">AUS</option>
+    <option value="DFW">DFW</option>
+    <option value="DEN">DEN</option>
+    <option value="LAX">LAX</option>
+    <option value="SAN">SAN</option>
+  </select>
   <label>Departs:</label>
   <input type="datetime-local" name="departs" value="<%= defaultDate %>" required>
   <input type="submit" value="Add Flight">

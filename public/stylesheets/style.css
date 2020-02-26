@@ -65,7 +65,7 @@ nav > a.active {
   grid-template-columns: repeat(2, minmax(auto, 22rem));
 }
 
-#new-form *, #add-review-form * {
+#new-form *, #add-destination-form * {
   font-size: 20px;
   padding: 5px;
   border-radius: 5px;

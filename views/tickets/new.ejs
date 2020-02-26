@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+
+<h2>Add New Ticket for <%= `${flight.airline} flight #: ${flight.flightNo}` %> </h2>
+<form id="add-ticket-form" method="POST"
+  action="/tickets">
+  <label>Seat:</label>
+  <input name="seat" required pattern="[A-F][1-9]\d?">
+  <label>Price:</label>
+  <input type="number" name="price" required>
+  <input type="hidden" name="flight" value="<%= flight._id %>">
+  <input type="submit" value="Add Ticket">
+</form>
+
+<%- include('../partials/footer') %>

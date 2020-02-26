@@ -1,4 +1,5 @@
 const Flight = require('../models/flight');
+const Ticket = require('../models/ticket');
 let yearFromNow = new Date(new Date().setFullYear(new Date().getFullYear() + 1));
 let defaultDate = yearFromNow.toISOString().substr(0,19);
 
@@ -11,11 +12,14 @@ module.exports = {
 
 function show(req, res) {
     Flight.findById(req.params.id, function(err, flight) {
-        res.render('flights/show', {
-            title: 'Flight Detail',
-            flight,
-            defaultDate
-        })
+        Ticket.find({flight: flight._id}, function(err, tickets) {
+            res.render('flights/show', {
+                title: 'Flight Detail',
+                flight,
+                defaultDate,
+                tickets
+            })
+        });
     });
 }
 
@@ -35,7 +39,6 @@ function create(req, res) {
     const flight = new Flight(req.body);
     flight.save(function(err) {
         if (err) return res.redirect('flights/new');
-        console.log(flight);
         res.redirect('/flights');
     });
 }
