@@ -8,21 +8,9 @@
   <div>Departure: </div>
   <div><%= flight.departs.toLocaleString();  %></div>
 </section>
-<br><br><h2>Destination</h2>
-<form id="add-destination-form" method="POST"
-  action="/flights/<%= flight._id %>/destinations">
-  <label>Destination Airport:</label>
-  <select name="destAirport">
-    <option value="AUS">AUS</option>
-    <option value="DFW">DFW</option>
-    <option value="DEN">DEN</option>
-    <option value="LAX">LAX</option>
-    <option value="SAN">SAN</option>
-  </select>
-  <input type="datetime-local" name="arrival" value="<%= defaultDate %>" required>
-  <input type="submit" value="Add Destination">
-</form>
+<br><br>
 
+<h2>Destination</h2>
 <% if (flight.destinations.length) { %>
   <table>
     <thead>
@@ -43,9 +31,27 @@
       <% }); %>
     </tbody>
   </table>
-<% } else { %>
-  <h5>No Destination Airport Yet....</h5>
-<% } %>
+      <% } else { %>
+        <h5>No Destination Airport Yet....</h5>
+        <% } %>
+        
+<h2>Add Destination</h2>
+<form id="add-destination-form" method="POST"
+  action="/flights/<%= flight._id %>/destinations">
+  <label>Destination Airport:</label>
+  <select name="destAirport">
+    <option value="AUS">AUS</option>
+    <option value="DFW">DFW</option>
+    <option value="DEN">DEN</option>
+    <option value="LAX">LAX</option>
+    <option value="SAN">SAN</option>
+  </select>
+  <br>
+  <br>
+  <label>Time:</label>
+  <input type="datetime-local" name="arrival" value="<%= defaultDate %>" required>
+  <input type="submit" value="Add Destination">
+</form>
 
 <h2>Tickets</h2>
 
